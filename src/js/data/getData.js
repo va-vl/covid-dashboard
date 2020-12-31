@@ -10,6 +10,8 @@ async function getData(urls) {
     cumulativeCountries,
   ] = await getRawData(urls);
 
+  console.log(lastWorld);
+
   const result = [
     {
       name: 'World',

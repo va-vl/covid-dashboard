@@ -1,24 +1,38 @@
-import cap from '../helpers/cap';
-import { NUMBERS, STRINGS } from '../constants/index';
+import { NUMBERS } from '../constants/index';
+
+function cap(str) {
+  return str[0].toUpperCase() + str.slice(1);
+}
 
 function val100k(val, pop) {
   return +(NUMBERS['100K'] * (val / pop)).toFixed(2);
 }
 
-function createTypeFields(type) {
+function noSubZero(val) {
+  return val < 0 ? 0 : val;
+}
+
+function toHist(obj, type, val, dailyVal, pop) {
+  obj[`today${cap(type)}`].push(dailyVal);
+  obj[`today${cap(type)}100k`].push(val100k(dailyVal, pop));
+  obj[`all${cap(type)}`].push(val);
+  obj[`all${cap(type)}100k`].push(val100k(val, pop));
+}
+
+function createTypeFields(type, isHistoric) {
   return {
-    [`today${cap(type)}`]: 0,
-    [`today${cap(type)}100k`]: 0,
-    [`all${cap(type)}`]: 0,
-    [`all${cap(type)}100k`]: 0,
+    [`today${cap(type)}`]: isHistoric ? [] : 0,
+    [`today${cap(type)}100k`]: isHistoric ? [] : 0,
+    [`all${cap(type)}`]: isHistoric ? [] : 0,
+    [`all${cap(type)}100k`]: isHistoric ? [] : 0,
   };
 }
 
-function createDataFields() {
+function createDataFields(isHistoric = false) {
   return {
-    ...createTypeFields(STRINGS.TYPES.CASES),
-    ...createTypeFields(STRINGS.TYPES.DEATHS),
-    ...createTypeFields(STRINGS.TYPES.RECOVERED),
+    ...createTypeFields('cases', isHistoric),
+    ...createTypeFields('deaths', isHistoric),
+    ...createTypeFields('recovered', isHistoric),
   };
 }
 
@@ -26,20 +40,7 @@ function createHistoricTemplate() {
   return {
     historic: {
       dates: [],
-
-      todayCases: [],
-      todayDeaths: [],
-      todayRecovered: [],
-      todayCases100k: [],
-      todayDeaths100k: [],
-      todayRecovered100k: [],
-
-      allCases: [],
-      allDeaths: [],
-      allRecovered: [],
-      allCases100k: [],
-      allDeaths100k: [],
-      allRecovered100k: [],
+      ...createDataFields(true),
     },
   };
 }
@@ -47,7 +48,7 @@ function createHistoricTemplate() {
 function createTemplate() {
   return {
     ...createDataFields(),
-    ...createHistoricTemplate(),
+    ...createHistoricTemplate(true),
   };
 }
 
@@ -56,4 +57,6 @@ export {
   createHistoricTemplate,
   cap,
   val100k,
+  noSubZero,
+  toHist,
 };
