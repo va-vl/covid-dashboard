@@ -1,5 +1,14 @@
 @import "./../../scss/variables";
 
+@keyframes rotatespinner {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .loader {
   position: fixed;
   top: 0;
@@ -26,6 +35,10 @@
     .loader__button {
       display: inline;
     }
+
+    .loader__spinner {
+      display: none;
+    }
   }
 }
 
@@ -42,6 +55,21 @@
   align-items: center;
   width: 100%;
   margin-bottom: 20px;
+}
+
+.loader__spinner {
+  margin: 0 10px;
+  width: 20px;
+  height: 20px;
+  border: 5px solid rgba(#fff, 0.3);
+  border-left-color: white;
+  border-radius: 50%;
+  background: transparent;
+  animation-name: rotatespinner;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  position: relative;
 }
 
 .loader__greeting {

@@ -1,11 +1,6 @@
 import './Table.scss';
 import { capitalizeFirstLetter } from '../../js/helpers/index';
-import {
-  TAGS,
-  CLASSES,
-  STRINGS,
-  CONFIGS,
-} from '../../js/constants/index';
+import { TAGS, CLASSES, STRINGS, CONFIGS } from '../../js/constants/index';
 import Element from '../_common/Element';
 import ContentContainer from '../_common/content-container/ContentContainer';
 import ControlsToggles from '../_common/controls-toggles/ControlsToggles';
@@ -30,11 +25,7 @@ class Table extends ContentContainer {
     });
     this.toggles = new ControlsToggles({ hostClassName: CLASSES.TABLE });
 
-    this.element.append(
-      this.title,
-      table,
-      this.toggles.element,
-    );
+    this.element.append(this.title, table, this.toggles.element);
   }
 
   update({ data, state, change }) {
@@ -49,7 +40,10 @@ class Table extends ContentContainer {
     this.title.textContent = name;
 
     statusArr.forEach((status) => {
-      const key = period + capitalizeFirstLetter(status) + (amount === 'abs' ? '' : '100k');
+      const key =
+        period +
+        capitalizeFirstLetter(status) +
+        (amount === 'abs' ? '' : '100k');
       this.values[status].textContent = src[key].toLocaleString(CONFIGS.LOCALE);
     });
   }

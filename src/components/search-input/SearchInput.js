@@ -1,9 +1,5 @@
 import './SearchInput.scss';
-import {
-  TAGS,
-  CLASSES,
-  CONFIGS,
-} from '../../js/constants/index';
+import { TAGS, CLASSES, CONFIGS } from '../../js/constants/index';
 import Element from '../_common/Element';
 
 class SearchInput extends Element {
@@ -22,20 +18,27 @@ class SearchInput extends Element {
     });
     this.dropdown = Element.createDOM({ className: CLASSES.INPUT_DROPDOWN });
 
-    this.element.append(
-      this.input,
-      this.dropdown,
-    );
+    this.element.append(this.input, this.dropdown);
 
-    this.input.addEventListener('input', () => { this.handleInputFocus(); });
-    this.input.addEventListener('focus', () => { this.handleInputFocus(); });
-    this.element.addEventListener('keydown', (event) => { this.handleEnter(event); });
-    this.dropdown.addEventListener('click', (event) => { this.handleDropdownClick(event); });
+    this.input.addEventListener('input', () => {
+      this.handleInputFocus();
+    });
+    this.input.addEventListener('focus', () => {
+      this.handleInputFocus();
+    });
+    this.element.addEventListener('keydown', (event) => {
+      this.handleEnter(event);
+    });
+    this.dropdown.addEventListener('click', (event) => {
+      this.handleDropdownClick(event);
+    });
 
     document.addEventListener('click', (event) => {
       const isInput = event.target.classList.contains(CLASSES.INPUT_FIELD);
       const isDropdown = event.target.closest(`.${CLASSES.INPUT_DROPDOWN}`);
-      const isVirtualKeyboard = event.target.closest(`.${CLASSES.SIMPLE_KEYBOARD}`);
+      const isVirtualKeyboard = event.target.closest(
+        `.${CLASSES.SIMPLE_KEYBOARD}`
+      );
 
       if (!isInput && !isDropdown && !isVirtualKeyboard) {
         this.input.blur();

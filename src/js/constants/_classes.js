@@ -31,6 +31,7 @@ const CLASSES = {
   LOADER_WRAPPER: 'loader__wrapper',
   LOADER_LOADED: 'loader--loaded',
   LOADER_BUTTON: 'loader__button',
+  LOADER_SPINNER: 'loader__spinner',
   LOADER_HEADING_WRAPPER: 'loader__heading-wrapper',
   LOADER_GREETING: 'loader__greeting',
   LOADER_LIST: 'loader__list',

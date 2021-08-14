@@ -1,6 +1,4 @@
-import {
-  createTemplate,
-} from './_helpers';
+import { createTemplate } from './_helpers';
 
 describe('Testing the data object template', () => {
   test('createTemplate()', () => {

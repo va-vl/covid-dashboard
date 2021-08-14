@@ -25,13 +25,15 @@ class View extends Element {
     this.table = new Table({ blockClassName: CLASSES.VIEW_TABLE });
     this.graph = new Graph({ blockClassName: CLASSES.VIEW_GRAPH });
     this.footer = new Footer({ blockClassName: CLASSES.VIEW_FOOTER });
-    this.keyboardContainer = Element.createDOM({ className: CLASSES.SIMPLE_KEYBOARD });
+    this.keyboardContainer = Element.createDOM({
+      className: CLASSES.SIMPLE_KEYBOARD,
+    });
 
     mainWrapper.append(
       this.search.element,
       this.map.element,
       this.table.element,
-      this.graph.element,
+      this.graph.element
     );
 
     this.dataBlocks = [
@@ -47,7 +49,7 @@ class View extends Element {
       this.header.element,
       mainWrapper,
       this.footer.element,
-      this.keyboardContainer,
+      this.keyboardContainer
     );
 
     parent.insertAdjacentElement('afterbegin', this.element);

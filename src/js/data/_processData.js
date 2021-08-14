@@ -1,9 +1,5 @@
 import { capitalizeFirstLetter } from '../helpers/index';
-import {
-  createTemplate,
-  addLastValues,
-  pushToHistoric,
-} from './_helpers';
+import { createTemplate, addLastValues, pushToHistoric } from './_helpers';
 
 function processData(last, timeline, population) {
   const timelineEntries = Object.entries(timeline);

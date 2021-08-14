@@ -4,25 +4,16 @@ import Element from '../Element';
 import ControlsContainer from '../ControlsContainer';
 
 const {
-  PERIOD: {
-    ALL,
-    TODAY,
-  },
-
-  AMOUNT: {
-    ABS,
-    PER100K,
-  },
-
-  DATA_STATE_ATTR: {
-    PERIOD,
-    AMOUNT,
-  },
+  PERIOD: { ALL, TODAY },
+  AMOUNT: { ABS, PER100K },
+  DATA_STATE_ATTR: { PERIOD, AMOUNT },
 } = STRINGS;
 
 class ControlsToggles extends Element {
   constructor({ hostClassName }) {
-    super({ className: `${CLASSES.TOGGLES} ${hostClassName}__${CLASSES.TOGGLES_CONTAINER}` });
+    super({
+      className: `${CLASSES.TOGGLES} ${hostClassName}__${CLASSES.TOGGLES_CONTAINER}`,
+    });
 
     this.togglePeriod = new ControlsContainer({
       className: `${CLASSES.TOGGLES_WRAPPER} ${hostClassName}__${CLASSES.TOGGLES}`,
@@ -30,16 +21,12 @@ class ControlsToggles extends Element {
         {
           className: CLASSES.TOGGLES_TOGGLE,
           textContent: 'Total',
-          attrs: [
-            [PERIOD, ALL],
-          ],
+          attrs: [[PERIOD, ALL]],
         },
         {
           className: CLASSES.TOGGLES_TOGGLE,
           textContent: hostClassName === 'graph' ? 'Daily' : 'Last day',
-          attrs: [
-            [PERIOD, TODAY],
-          ],
+          attrs: [[PERIOD, TODAY]],
         },
       ],
     });
@@ -50,29 +37,19 @@ class ControlsToggles extends Element {
         {
           className: CLASSES.TOGGLES_TOGGLE,
           textContent: 'Abs',
-          attrs: [
-            [AMOUNT, ABS],
-          ],
+          attrs: [[AMOUNT, ABS]],
         },
         {
           className: CLASSES.TOGGLES_TOGGLE,
           textContent: 'Per 100k',
-          attrs: [
-            [AMOUNT, PER100K],
-          ],
+          attrs: [[AMOUNT, PER100K]],
         },
       ],
     });
 
-    this.toggles = [
-      this.togglePeriod,
-      this.toggleAmount,
-    ];
+    this.toggles = [this.togglePeriod, this.toggleAmount];
 
-    this.element.append(
-      this.togglePeriod.element,
-      this.toggleAmount.element,
-    );
+    this.element.append(this.togglePeriod.element, this.toggleAmount.element);
   }
 
   update(state) {

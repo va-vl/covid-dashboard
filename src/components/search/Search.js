@@ -17,9 +17,13 @@ class Search extends ContentContainer {
       className: CLASSES.SEARCH_TITLE,
       textContent: 'Cases by countries',
     });
-    const listWrapper = Element.createDOM({ className: CLASSES.SEARCH_LIST_WRAPPER });
+    const listWrapper = Element.createDOM({
+      className: CLASSES.SEARCH_LIST_WRAPPER,
+    });
 
-    this.searchInput = new SearchInput({ blockClassName: CLASSES.SEARCH_INPUT });
+    this.searchInput = new SearchInput({
+      blockClassName: CLASSES.SEARCH_INPUT,
+    });
     this.list = Element.createDOM({
       tagName: TAGS.UL,
       className: CLASSES.SEARCH_LIST,
@@ -33,7 +37,7 @@ class Search extends ContentContainer {
       this.searchInput.element,
       listWrapper,
       this.toggles.element,
-      this.tabs.element,
+      this.tabs.element
     );
 
     this.list.addEventListener('click', (event) => {
@@ -69,12 +73,14 @@ class Search extends ContentContainer {
       return;
     }
 
-    const filteredData = data.map((datum) => ({
-      flag: datum.flag,
-      name: datum.name,
-      value: datum[key],
-      currentName: state.name,
-    })).sort(({ value: v1 }, { value: v2 }) => v2 - v1);
+    const filteredData = data
+      .map((datum) => ({
+        flag: datum.flag,
+        name: datum.name,
+        value: datum[key],
+        currentName: state.name,
+      }))
+      .sort(({ value: v1 }, { value: v2 }) => v2 - v1);
 
     this.searchItemsDOM.forEach((item, index) => {
       SearchItem.updateDOM(item, filteredData[index]);
@@ -83,18 +89,22 @@ class Search extends ContentContainer {
 
   init(data, state, key) {
     const names = [];
-    const filteredData = data.map((datum) => {
-      names.push(datum.name);
-      return {
-        flag: datum.flag,
-        name: datum.name,
-        value: datum[key],
-        currentName: state.name,
-      };
-    }).sort(({ value: v1 }, { value: v2 }) => v2 - v1);
+    const filteredData = data
+      .map((datum) => {
+        names.push(datum.name);
+        return {
+          flag: datum.flag,
+          name: datum.name,
+          value: datum[key],
+          currentName: state.name,
+        };
+      })
+      .sort(({ value: v1 }, { value: v2 }) => v2 - v1);
 
     this.searchInput.names = names;
-    this.searchItemsDOM = filteredData.map((datum) => SearchItem.createDOM(datum));
+    this.searchItemsDOM = filteredData.map((datum) =>
+      SearchItem.createDOM(datum)
+    );
     this.list.append(...this.searchItemsDOM);
   }
 }
