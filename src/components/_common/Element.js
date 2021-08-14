@@ -53,12 +53,7 @@ class Element {
    * @param {Boolean} params.bubbles
    * @param {Object} params.detail
    */
-  static fireEvent({
-    dispatcher,
-    name,
-    bubbles,
-    detail = {},
-  }) {
+  static fireEvent({ dispatcher, name, bubbles, detail = {} }) {
     const event = new CustomEvent(name, { bubbles, detail });
     dispatcher.dispatchEvent(event);
   }

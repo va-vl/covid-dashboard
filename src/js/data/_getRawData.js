@@ -11,7 +11,8 @@ async function getRawData(urls) {
   const lastTimestamp = lastUpdate?.[0].updated;
   const newTimestamp = Date.now();
   const threshold = MILLISECONDS_IN_HOUR * CONFIGS.HOURS_BETWEEN_UPDATES;
-  const isUpdateRequired = !lastTimestamp || ((newTimestamp - lastTimestamp) > threshold);
+  const isUpdateRequired =
+    !lastTimestamp || newTimestamp - lastTimestamp > threshold;
 
   if (isUpdateRequired) {
     const data = await fetchData(urls);

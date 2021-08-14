@@ -1,8 +1,4 @@
-import {
-  capitalizeFirstLetter,
-  radius,
-  formatNumber,
-} from './index';
+import { capitalizeFirstLetter, radius, formatNumber } from './index';
 
 describe('Capping a lowercase string', () => {
   test('hello should be Hello', () => {

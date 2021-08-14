@@ -1,25 +1,13 @@
 import './SearchItem.scss';
-import {
-  TAGS,
-  CLASSES,
-  STRINGS,
-  CONFIGS,
-} from '../../js/constants/index';
+import { TAGS, CLASSES, STRINGS, CONFIGS } from '../../js/constants/index';
 import Element from '../_common/Element';
 
 class SearchItem extends Element {
-  constructor({
-    flag,
-    name,
-    value,
-    currentName,
-  }) {
+  constructor({ flag, name, value, currentName }) {
     super({
       tagName: TAGS.LI,
       className: CLASSES.SEARCH_ITEM,
-      attrs: [
-        [STRINGS.DATA_STATE_ATTR.NAME, name],
-      ],
+      attrs: [[STRINGS.DATA_STATE_ATTR.NAME, name]],
     });
 
     if (name === currentName) {
@@ -48,22 +36,10 @@ class SearchItem extends Element {
       ],
     });
 
-    this.element.append(
-      this.flagElem,
-      this.titleElem,
-      this.valueElem,
-    );
+    this.element.append(this.flagElem, this.titleElem, this.valueElem);
   }
 
-  static updateDOM(
-    htmlElement,
-    {
-      flag,
-      name,
-      value,
-      currentName,
-    },
-  ) {
+  static updateDOM(htmlElement, { flag, name, value, currentName }) {
     const elem = htmlElement;
     const [flagElem, titleElem, valueElem] = elem.children;
 

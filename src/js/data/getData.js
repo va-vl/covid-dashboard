@@ -2,12 +2,8 @@ import getRawData from './_getRawData';
 import processData from './_processData';
 
 async function getData(urls) {
-  const [
-    lastWorld,
-    cumulativeWorld,
-    lastCountries,
-    cumulativeCountries,
-  ] = await getRawData(urls);
+  const [lastWorld, cumulativeWorld, lastCountries, cumulativeCountries] =
+    await getRawData(urls);
 
   const result = [
     {
@@ -27,9 +23,7 @@ async function getData(urls) {
       const {
         country: name,
         population,
-        countryInfo: {
-          lat, long, flag,
-        },
+        countryInfo: { lat, long, flag },
       } = lastCountry;
 
       const countryObj = {

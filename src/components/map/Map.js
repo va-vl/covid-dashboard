@@ -15,7 +15,9 @@ class Map extends ContentContainer {
     this.addClasses(blockClassName);
 
     const mapWrapper = Element.createDOM({ className: CLASSES.MAP_WRAPPER });
-    const mapContainer = Element.createDOM({ className: CLASSES.MAP_CONTAINER });
+    const mapContainer = Element.createDOM({
+      className: CLASSES.MAP_CONTAINER,
+    });
 
     this.circles = [];
     this.map = Map.createLeafletMap(mapContainer);
@@ -55,12 +57,7 @@ class Map extends ContentContainer {
     this.legend.update({ minVal, maxVal, state });
 
     if (this.circles.length === 0) {
-      filteredData.forEach(({
-        name,
-        lat,
-        long,
-        val,
-      }) => {
+      filteredData.forEach(({ name, lat, long, val }) => {
         const r = radius.fromValue(val, minVal, maxVal, minA, maxA);
         const color = getMarkerColor(state.status);
 
@@ -70,7 +67,11 @@ class Map extends ContentContainer {
           fillOpacity: CONFIGS.MAP.FILL_OPACITY,
           radius: r,
         })
-          .bindTooltip(`${name} - ${state.getDescription()} - ${val.toLocaleString('ru-RU')}`)
+          .bindTooltip(
+            `${name} - ${state.getDescription()} - ${val.toLocaleString(
+              'ru-RU'
+            )}`
+          )
           .addTo(this.map);
 
         circle.addEventListener('click', () => {
@@ -96,7 +97,7 @@ class Map extends ContentContainer {
         });
         circle.setRadius(r);
         circle.setTooltipContent(
-          `${name} - ${state.getDescription()} - ${val.toLocaleString('ru-RU')}`,
+          `${name} - ${state.getDescription()} - ${val.toLocaleString('ru-RU')}`
         );
       });
     }
@@ -107,12 +108,7 @@ class Map extends ContentContainer {
     let maxVal = 0;
 
     const filteredData = data.reduce((acc, datum) => {
-      const {
-        name,
-        lat,
-        long,
-        [key]: val,
-      } = datum;
+      const { name, lat, long, [key]: val } = datum;
 
       if (name === 'World') {
         return acc;
@@ -166,19 +162,15 @@ class Map extends ContentContainer {
 
     const map = L.map(container, { attributionControl: false });
 
-    L.tileLayer(
-      TILES,
-      {
-        attribution: ATTRIBUTION,
-        accessToken: ACCESS_TOKEN,
-        id: ID,
-        maxZoom: MAX_ZOOM,
-        minZoom: MIN_ZOOM,
-        tileSize: TILE_SIZE,
-        zoomOffset: ZOOM_OFFSET,
-      },
-    )
-      .addTo(map);
+    L.tileLayer(TILES, {
+      attribution: ATTRIBUTION,
+      accessToken: ACCESS_TOKEN,
+      id: ID,
+      maxZoom: MAX_ZOOM,
+      minZoom: MIN_ZOOM,
+      tileSize: TILE_SIZE,
+      zoomOffset: ZOOM_OFFSET,
+    }).addTo(map);
 
     L.control.attribution({ position: POSITION }).addTo(map);
     map.setMaxBounds(bounds);

@@ -12,7 +12,9 @@ class Graph extends ContentContainer {
     super({ className: CLASSES.GRAPH });
     this.addClasses(blockClassName);
 
-    const graphContainer = Element.createDOM({ className: CLASSES.GRAPH_CONTAINER });
+    const graphContainer = Element.createDOM({
+      className: CLASSES.GRAPH_CONTAINER,
+    });
     const graph = Element.createDOM({
       tagName: TAGS.CANVAS,
       className: CLASSES.GRAPH_BLOCK,
@@ -36,11 +38,13 @@ class Graph extends ContentContainer {
       this.title,
       graphContainer,
       this.toggles.element,
-      this.tabs.element,
+      this.tabs.element
     );
 
     this.element.addEventListener('fullscreenSet', () => {
-      const isFullscreen = this.element.classList.contains(CLASSES.CONTENT_CONTAINER_FULLSCREEN);
+      const isFullscreen = this.element.classList.contains(
+        CLASSES.CONTENT_CONTAINER_FULLSCREEN
+      );
       graphContainer.style.width = '1px';
       graphContainer.style.height = '1px';
 
@@ -72,11 +76,13 @@ class Graph extends ContentContainer {
         type: 'bar',
         data: {
           labels: dates,
-          datasets: [{
-            label: state.getDescription(),
-            data: dataset,
-            backgroundColor: getMarkerColor(state.status),
-          }],
+          datasets: [
+            {
+              label: state.getDescription(),
+              data: dataset,
+              backgroundColor: getMarkerColor(state.status),
+            },
+          ],
         },
         options: {
           tooltips: {
@@ -87,18 +93,22 @@ class Graph extends ContentContainer {
           maintainAspectRatio: false,
           responsive: true,
           scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: true,
-                callback: formatNumber.toNamedString,
+            yAxes: [
+              {
+                ticks: {
+                  beginAtZero: true,
+                  callback: formatNumber.toNamedString,
+                },
               },
-            }],
-            xAxes: [{
-              type: 'time',
-              time: {
-                unit: 'month',
+            ],
+            xAxes: [
+              {
+                type: 'time',
+                time: {
+                  unit: 'month',
+                },
               },
-            }],
+            ],
           },
         },
       });

@@ -51,8 +51,12 @@ function pushToHistoric(obj, typeInKey, value, dailyValue, population) {
 
   obj[`${ALL}${typeInKey}`].push(val);
   obj[`${TODAY}${typeInKey}`].push(dailyVal);
-  obj[`${ALL}${typeInKey}${PER100K}`].push(amountRelativeToPopulation(val, population));
-  obj[`${TODAY}${typeInKey}${PER100K}`].push(amountRelativeToPopulation(dailyVal, population));
+  obj[`${ALL}${typeInKey}${PER100K}`].push(
+    amountRelativeToPopulation(val, population)
+  );
+  obj[`${TODAY}${typeInKey}${PER100K}`].push(
+    amountRelativeToPopulation(dailyVal, population)
+  );
 }
 
 function addLastValues(obj, type, typeInKey, lastObj, population) {
@@ -62,12 +66,14 @@ function addLastValues(obj, type, typeInKey, lastObj, population) {
 
   result[`${TODAY}${typeInKey}`] = todayValue;
   result[`${ALL}${typeInKey}`] = allValue;
-  result[`${TODAY}${typeInKey}100k`] = amountRelativeToPopulation(todayValue, population);
-  result[`${ALL}${typeInKey}100k`] = amountRelativeToPopulation(allValue, population);
+  result[`${TODAY}${typeInKey}100k`] = amountRelativeToPopulation(
+    todayValue,
+    population
+  );
+  result[`${ALL}${typeInKey}100k`] = amountRelativeToPopulation(
+    allValue,
+    population
+  );
 }
 
-export {
-  createTemplate,
-  pushToHistoric,
-  addLastValues,
-};
+export { createTemplate, pushToHistoric, addLastValues };
