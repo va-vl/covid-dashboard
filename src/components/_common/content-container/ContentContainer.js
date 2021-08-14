@@ -1,6 +1,6 @@
-import './ContentContainer.scss';
-import { TAGS, CLASSES } from '../../../js/constants/index';
-import Element from '../Element';
+import "./ContentContainer.scss";
+import { TAGS, CLASSES } from "../../../js/constants/index";
+import Element from "../Element";
 
 class ContentContainer extends Element {
   constructor({ className }) {
@@ -14,18 +14,23 @@ class ContentContainer extends Element {
 
     this.element.append(buttonFullscreen);
 
-    buttonFullscreen.addEventListener('click', () => {
-      if (!this.element.classList.contains(CLASSES.GRAPH)) {
-        this.element.classList.toggle(CLASSES.CONTENT_CONTAINER_FULLSCREEN);
+    buttonFullscreen.addEventListener("click", () => {
+      if (
+        !this.element.classList.contains(CLASSES.CONTENT_CONTAINER_FULLSCREEN)
+      ) {
+        this.element.requestFullscreen({ navigationUI: "auto" });
+        this.element.classList.add(CLASSES.CONTENT_CONTAINER_FULLSCREEN);
       } else {
-        setTimeout(() => {
-          this.element.classList.toggle(CLASSES.CONTENT_CONTAINER_FULLSCREEN);
-        });
+        this.element.classList.remove(CLASSES.CONTENT_CONTAINER_FULLSCREEN);
+
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
       }
 
       ContentContainer.fireEvent({
         dispatcher: buttonFullscreen,
-        name: 'fullscreenSet',
+        name: "fullscreenSet",
         bubbles: true,
       });
     });

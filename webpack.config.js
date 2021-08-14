@@ -28,14 +28,17 @@ module.exports = (env, options) => {
 
   const config = {
     mode: isProd ? "production" : "development",
+
     devtool: !isProd && "source-map",
-    watch: !isProd,
-    entry: ["@babel/polyfill", path.resolve(__dirname, "./src/main.js")],
+
+    entry: path.resolve(__dirname, "./src/main.js"),
+
     output: {
       publicPath: "",
       path: path.resolve(__dirname, "./dist"),
       filename: "[name].bundle.js",
     },
+
     devServer: {
       historyApiFallback: true,
       contentBase: path.resolve(__dirname, "./dist"),
@@ -44,6 +47,7 @@ module.exports = (env, options) => {
       hot: true,
       port: 8080,
     },
+
     module: {
       rules: [
         {
@@ -75,6 +79,7 @@ module.exports = (env, options) => {
         },
       ],
     },
+
     optimization: {
       minimize: isProd,
       minimizer: [new OptimizeCssAssetsPlugin(), "..."],
@@ -82,6 +87,7 @@ module.exports = (env, options) => {
         chunks: "all",
       },
     },
+
     plugins: [
       new Dotenv({ systemvars: true }),
       new CleanWebpackPlugin(),

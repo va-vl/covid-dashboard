@@ -5,9 +5,8 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "dev": "webpack --mode=development",
+    "dev": "webpack serve --mode=development",
     "build": "webpack --mode=production",
-    "serve": "webpack serve",
     "test": "jest"
   },
   "repository": {
@@ -35,11 +34,9 @@
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/eslint-parser": "^7.12.1",
-    "@babel/plugin-proposal-class-properties": "^7.12.1",
-    "@babel/plugin-proposal-private-methods": "^7.12.1",
-    "@babel/plugin-syntax-class-properties": "^7.12.1",
-    "@babel/polyfill": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.15.0",
     "@babel/preset-env": "^7.12.10",
+    "@babel/runtime": "^7.15.3",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.4.0",
