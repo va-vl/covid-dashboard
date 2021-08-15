@@ -23,11 +23,10 @@ const CONFIGS = {
   },
 
   MAP: {
-    TILES:
-      'https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png',
+    TILES: `https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png?api_key=${process.env.STADIA_MAPS_ACCESS_TOKEN}`,
     ATTRIBUTION:
       '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
-    ACCESS_TOKEN: process.env.LEAFLET_ACCESS_TOKEN,
+    ACCESS_TOKEN: process.env.STADIA_MAPS_ACCESS_TOKEN,
     ID: 'mapbox/streets-v11',
     POSITION: 'topright',
 
