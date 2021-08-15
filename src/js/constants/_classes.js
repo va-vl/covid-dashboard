@@ -28,14 +28,9 @@ const CLASSES = {
   FOOTER_IMAGE: 'footer__image',
 
   LOADER: 'loader',
-  LOADER_WRAPPER: 'loader__wrapper',
-  LOADER_LOADED: 'loader--loaded',
-  LOADER_BUTTON: 'loader__button',
-  LOADER_SPINNER: 'loader__spinner',
   LOADER_HEADING_WRAPPER: 'loader__heading-wrapper',
-  LOADER_GREETING: 'loader__greeting',
-  LOADER_LIST: 'loader__list',
-  LOADER_LIST_ITEM: 'loader__list-item',
+  LOADER_HEADING: 'loader__heading',
+  LOADER_SPINNER: 'loader__spinner',
 
   SEARCH: 'search',
   SEARCH_TITLE: 'search__title',

@@ -30,22 +30,6 @@
   background: linear-gradient(to right, #c4167e, #493240);
 
   font-size: 1.2em;
-
-  &--loaded {
-    .loader__button {
-      display: inline;
-    }
-
-    .loader__spinner {
-      display: none;
-    }
-  }
-}
-
-.loader__wrapper {
-  min-width: 300px;
-  margin: 0 20px;
-
 }
 
 .loader__heading-wrapper {
@@ -70,25 +54,4 @@
   animation-duration: 1s;
   animation-timing-function: linear;
   position: relative;
-}
-
-.loader__greeting {
-  margin-bottom: 20px;
-}
-
-.loader__button {
-  display: none;
-  margin-left: 100px;
-  padding: 10px;
-}
-
-.loader__list {
-  text-align: left;
-  width: 100%;
-  padding-left: 30px;
-  box-sizing: border-box;
-}
-
-.loader__list-item {
-  margin: 10px 0;
 }
