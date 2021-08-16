@@ -1,8 +1,8 @@
 import './SearchItem.scss';
 import { TAGS, CLASSES, STRINGS, CONFIGS } from '../../js/constants/index';
-import Element from '../_common/Element';
+import MyElement from '../_common/MyElement';
 
-class SearchItem extends Element {
+class SearchItem extends MyElement {
   constructor({ flag, name, value, currentName }) {
     super({
       tagName: TAGS.LI,
@@ -14,19 +14,19 @@ class SearchItem extends Element {
       this.element.classList.add(CLASSES.SEARCH_ITEM_ACTIVE);
     }
 
-    this.titleElem = Element.createDOM({
+    this.titleElem = MyElement.createDOM({
       tagName: TAGS.H3,
       className: CLASSES.SEARCH_ITEM_TITLE,
       textContent: name,
     });
 
-    this.valueElem = Element.createDOM({
+    this.valueElem = MyElement.createDOM({
       tagName: TAGS.H3,
       className: CLASSES.SEARCH_ITEM_VALUE,
       textContent: value.toLocaleString(CONFIGS.LOCALE) || '0',
     });
 
-    this.flagElem = Element.createDOM({
+    this.flagElem = MyElement.createDOM({
       tagName: TAGS.IMG,
       className: CLASSES.SEARCH_ITEM_FLAG,
       attrs: [

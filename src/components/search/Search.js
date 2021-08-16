@@ -1,6 +1,6 @@
 import './Search.scss';
 import { TAGS, CLASSES } from '../../js/constants/index';
-import Element from '../_common/Element';
+import MyElement from '../_common/MyElement';
 import ContentContainer from '../_common/content-container/ContentContainer';
 import ControlsTabs from '../_common/controls-tabs/ControlsTabs';
 import ControlsToggles from '../_common/controls-toggles/ControlsToggles';
@@ -12,19 +12,19 @@ class Search extends ContentContainer {
     super({ className: CLASSES.SEARCH });
     this.addClasses(blockClassName);
 
-    const title = Element.createDOM({
+    const title = MyElement.createDOM({
       tagName: TAGS.H2,
       className: CLASSES.SEARCH_TITLE,
       textContent: 'Cases by countries',
     });
-    const listWrapper = Element.createDOM({
+    const listWrapper = MyElement.createDOM({
       className: CLASSES.SEARCH_LIST_WRAPPER,
     });
 
     this.searchInput = new SearchInput({
       blockClassName: CLASSES.SEARCH_INPUT,
     });
-    this.list = Element.createDOM({
+    this.list = MyElement.createDOM({
       tagName: TAGS.UL,
       className: CLASSES.SEARCH_LIST,
     });

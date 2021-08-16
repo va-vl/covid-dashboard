@@ -1,6 +1,6 @@
 import './View.scss';
 import { TAGS, CLASSES } from '../../js/constants/index';
-import Element from '../_common/Element';
+import MyElement from '../_common/MyElement';
 import Loader from '../loader/Loader';
 import Header from '../header/Header';
 import Search from '../search/Search';
@@ -9,11 +9,11 @@ import Table from '../table/Table';
 import Graph from '../graph/Graph';
 import Footer from '../footer/Footer';
 
-class View extends Element {
+class View extends MyElement {
   constructor(parent) {
     super({ className: CLASSES.VIEW });
 
-    const mainWrapper = Element.createDOM({
+    const mainWrapper = MyElement.createDOM({
       tagName: TAGS.MAIN,
       className: CLASSES.VIEW_MAIN_WRAPPER,
     });
@@ -25,7 +25,7 @@ class View extends Element {
     this.table = new Table({ blockClassName: CLASSES.VIEW_TABLE });
     this.graph = new Graph({ blockClassName: CLASSES.VIEW_GRAPH });
     this.footer = new Footer({ blockClassName: CLASSES.VIEW_FOOTER });
-    this.keyboardContainer = Element.createDOM({
+    this.keyboardContainer = MyElement.createDOM({
       className: CLASSES.SIMPLE_KEYBOARD,
     });
 

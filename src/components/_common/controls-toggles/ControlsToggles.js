@@ -1,6 +1,6 @@
 import './ControlsToggles.scss';
 import { STRINGS, CLASSES } from '../../../js/constants/index';
-import Element from '../Element';
+import MyElement from '../MyElement';
 import ControlsContainer from '../ControlsContainer';
 
 const {
@@ -9,7 +9,7 @@ const {
   DATA_STATE_ATTR: { PERIOD, AMOUNT },
 } = STRINGS;
 
-class ControlsToggles extends Element {
+export default class ControlsToggles extends MyElement {
   constructor({ hostClassName }) {
     super({
       className: `${CLASSES.TOGGLES} ${hostClassName}__${CLASSES.TOGGLES_CONTAINER}`,
@@ -56,5 +56,3 @@ class ControlsToggles extends Element {
     this.toggles.forEach((toggle) => toggle.update(state));
   }
 }
-
-export default ControlsToggles;

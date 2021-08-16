@@ -1,31 +1,31 @@
 import './Header.scss';
 import { TAGS, CLASSES } from '../../js/constants/index';
-import Element from '../_common/Element';
+import MyElement from '../_common/MyElement';
 
-class Header extends Element {
+class Header extends MyElement {
   constructor({ blockClassName }) {
     super({ tagName: TAGS.HEADER, className: CLASSES.HEADER });
     this.addClasses(blockClassName);
 
-    const wrapper = Element.createDOM({ className: CLASSES.HEADER_WRAPPER });
-    const title = Element.createDOM({
+    const wrapper = MyElement.createDOM({ className: CLASSES.HEADER_WRAPPER });
+    const title = MyElement.createDOM({
       tagName: TAGS.H1,
       className: CLASSES.HEADER_TITLE,
       textContent: 'RSS COVID-19 Dashboard',
     });
-    const dateWrapper = Element.createDOM();
-    const dateText = Element.createDOM({
+    const dateWrapper = MyElement.createDOM();
+    const dateText = MyElement.createDOM({
       tagName: TAGS.P,
       className: CLASSES.HEADER_INFO,
       textContent: 'Last updated: ',
     });
 
-    this.date = Element.createDOM({
+    this.date = MyElement.createDOM({
       tagName: TAGS.P,
       className: CLASSES.HEADER_INFO,
     });
 
-    this.button = Element.createDOM({
+    this.button = MyElement.createDOM({
       tagName: TAGS.BUTTON,
       className: `${CLASSES.HEADER_BUTTON} ${CLASSES.BUTTON}`,
       textContent: 'Save as JSON',
