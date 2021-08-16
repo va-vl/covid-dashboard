@@ -1,6 +1,6 @@
 import { TAGS } from '../../js/constants/index';
 
-class Element {
+export default class MyElement {
   /**
    * @param {Object} params - an object with instance params
    * @param {String} params.tagName - name of created HTML Element
@@ -58,5 +58,3 @@ class Element {
     dispatcher.dispatchEvent(event);
   }
 }
-
-export default Element;

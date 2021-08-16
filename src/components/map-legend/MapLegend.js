@@ -1,9 +1,9 @@
 import './MapLegend.scss';
 import { radius, formatNumber } from '../../js/helpers/index';
 import { TAGS, CLASSES, STRINGS, CONFIGS } from '../../js/constants/index';
-import Element from '../_common/Element';
+import MyElement from '../_common/MyElement';
 
-class MapLegend extends Element {
+class MapLegend extends MyElement {
   constructor({ className, minArea, maxArea }) {
     super({ className: CLASSES.LEGEND });
     this.addClasses(className);
@@ -23,7 +23,7 @@ class MapLegend extends Element {
       { rows: [], rowTitles: [] }
     );
 
-    this.title = Element.createDOM({
+    this.title = MyElement.createDOM({
       tagName: TAGS.H3,
       className: CLASSES.LEGEND_TITLE,
     });
@@ -49,17 +49,17 @@ class MapLegend extends Element {
     const currentDiameter = 2 * radius.fromArea(area);
     const side = formatNumber.toPixelString(currentDiameter);
 
-    const row = Element.createDOM({ className: CLASSES.LEGEND_ROW });
-    const circleContainer = Element.createDOM({
+    const row = MyElement.createDOM({ className: CLASSES.LEGEND_ROW });
+    const circleContainer = MyElement.createDOM({
       className: CLASSES.LEGEND_CIRCLE_CONTAINER,
       attrs: [['style', `width: ${containerSide}; height: ${containerSide}`]],
     });
 
-    const circle = Element.createDOM({
+    const circle = MyElement.createDOM({
       className: CLASSES.LEGEND_CIRCLE,
       attrs: [['style', `width: ${side}; height: ${side}`]],
     });
-    const title = Element.createDOM({ tagName: TAGS.P });
+    const title = MyElement.createDOM({ tagName: TAGS.P });
 
     circleContainer.append(circle);
     row.append(circleContainer, title);

@@ -3,7 +3,7 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { radius, getMarkerColor } from '../../js/helpers/index';
 import { CLASSES, CONFIGS } from '../../js/constants/index';
-import Element from '../_common/Element';
+import MyElement from '../_common/MyElement';
 import ContentContainer from '../_common/content-container/ContentContainer';
 import ControlsTabs from '../_common/controls-tabs/ControlsTabs';
 import ControlsToggles from '../_common/controls-toggles/ControlsToggles';
@@ -14,8 +14,8 @@ class Map extends ContentContainer {
     super({ className: CLASSES.MAP });
     this.addClasses(blockClassName);
 
-    const mapWrapper = Element.createDOM({ className: CLASSES.MAP_WRAPPER });
-    const mapContainer = Element.createDOM({
+    const mapWrapper = MyElement.createDOM({ className: CLASSES.MAP_WRAPPER });
+    const mapContainer = MyElement.createDOM({
       className: CLASSES.MAP_CONTAINER,
     });
 

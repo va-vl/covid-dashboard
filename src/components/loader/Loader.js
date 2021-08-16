@@ -1,22 +1,22 @@
 import './Loader.scss';
 import { TAGS, CLASSES } from '../../js/constants/index';
-import Element from '../_common/Element';
+import MyElement from '../_common/MyElement';
 
-class Loader extends Element {
+class Loader extends MyElement {
   constructor() {
     super({ className: CLASSES.LOADER });
 
-    const headingWrapper = Element.createDOM({
+    const headingWrapper = MyElement.createDOM({
       className: CLASSES.LOADER_HEADING_WRAPPER,
     });
 
-    this.heading = Element.createDOM({
+    this.heading = MyElement.createDOM({
       tagName: TAGS.H2,
       textContent: 'Loading',
       className: CLASSES.LOADER_HEADING,
     });
 
-    const headingSpinner = Element.createDOM({
+    const headingSpinner = MyElement.createDOM({
       className: CLASSES.LOADER_SPINNER,
     });
 

@@ -1,13 +1,13 @@
 import './ContentContainer.scss';
 import { TAGS, CLASSES } from '../../../js/constants/index';
-import Element from '../Element';
+import MyElement from '../MyElement';
 
-class ContentContainer extends Element {
+export default class ContentContainer extends MyElement {
   constructor({ className }) {
     super({ tagName: TAGS.SECTION, className: CLASSES.CONTENT_CONTAINER });
     this.addClasses(className);
 
-    const buttonFullscreen = Element.createDOM({
+    const buttonFullscreen = MyElement.createDOM({
       tagName: TAGS.BUTTON,
       className: CLASSES.CONTENT_CONTAINER_FULLSCREEN_BUTTON,
     });
@@ -36,5 +36,3 @@ class ContentContainer extends Element {
     });
   }
 }
-
-export default ContentContainer;

@@ -2,7 +2,7 @@ import './Graph.scss';
 import Chart from 'chart.js';
 import { formatNumber, getMarkerColor } from '../../js/helpers/index';
 import { TAGS, CLASSES, CONFIGS } from '../../js/constants/index';
-import Element from '../_common/Element';
+import MyElement from '../_common/MyElement';
 import ContentContainer from '../_common/content-container/ContentContainer';
 import ControlsToggles from '../_common/controls-toggles/ControlsToggles';
 import ControlsTabs from '../_common/controls-tabs/ControlsTabs';
@@ -12,10 +12,10 @@ class Graph extends ContentContainer {
     super({ className: CLASSES.GRAPH });
     this.addClasses(blockClassName);
 
-    const graphContainer = Element.createDOM({
+    const graphContainer = MyElement.createDOM({
       className: CLASSES.GRAPH_CONTAINER,
     });
-    const graph = Element.createDOM({
+    const graph = MyElement.createDOM({
       tagName: TAGS.CANVAS,
       className: CLASSES.GRAPH_BLOCK,
       attrs: [
@@ -25,7 +25,7 @@ class Graph extends ContentContainer {
     });
 
     this.ctx = graph.getContext('2d');
-    this.title = Element.createDOM({
+    this.title = MyElement.createDOM({
       tagName: TAGS.H2,
       className: CLASSES.GRAPH_TITLE,
     });

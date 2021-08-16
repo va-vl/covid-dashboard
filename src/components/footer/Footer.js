@@ -1,16 +1,16 @@
 import './Footer.scss';
 import { TAGS, CLASSES, CONFIGS } from '../../js/constants/index';
-import Element from '../_common/Element';
+import MyElement from '../_common/MyElement';
 import logo from '../../assets/rs_school_logo.svg';
 
-class Footer extends Element {
+export default class Footer extends MyElement {
   constructor({ blockClassName }) {
     super({ tagName: TAGS.FOOTER, className: CLASSES.FOOTER });
     this.addClasses(blockClassName);
 
-    const wrapper = Element.createDOM({ className: CLASSES.FOOTER_WRAPPER });
-    const authors = Element.createDOM({ textContent: 'Created by: ' });
-    const author1 = Element.createDOM({
+    const wrapper = MyElement.createDOM({ className: CLASSES.FOOTER_WRAPPER });
+    const authors = MyElement.createDOM({ textContent: 'Created by: ' });
+    const author1 = MyElement.createDOM({
       tagName: TAGS.A,
       className: CLASSES.FOOTER_LINK,
       textContent: 'va-z',
@@ -19,7 +19,7 @@ class Footer extends Element {
         ['target', '_blank'],
       ],
     });
-    const author2 = Element.createDOM({
+    const author2 = MyElement.createDOM({
       tagName: TAGS.A,
       className: CLASSES.FOOTER_LINK,
       textContent: 'AnnaZAS',
@@ -28,7 +28,7 @@ class Footer extends Element {
         ['target', '_blank'],
       ],
     });
-    const rssLogo = Element.createDOM({
+    const rssLogo = MyElement.createDOM({
       tagName: TAGS.A,
       className: CLASSES.FOOTER_LINK_LOGO,
       attrs: [
@@ -36,7 +36,7 @@ class Footer extends Element {
         ['target', '_blank'],
       ],
     });
-    const logoImg = Element.createDOM({
+    const logoImg = MyElement.createDOM({
       tagName: TAGS.IMG,
       className: CLASSES.FOOTER_IMAGE,
       attrs: [
@@ -51,5 +51,3 @@ class Footer extends Element {
     this.element.append(wrapper);
   }
 }
-
-export default Footer;

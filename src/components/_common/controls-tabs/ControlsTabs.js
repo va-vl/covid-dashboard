@@ -29,10 +29,8 @@ const getTabsParams = (className) => ({
   ],
 });
 
-class ControlsTabs extends ControlsContainer {
+export default class ControlsTabs extends ControlsContainer {
   constructor({ hostClassName }) {
     super({ ...getTabsParams(hostClassName) });
   }
 }
-
-export default ControlsTabs;

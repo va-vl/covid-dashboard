@@ -1,13 +1,13 @@
 import './SearchInput.scss';
 import { TAGS, CLASSES, CONFIGS } from '../../js/constants/index';
-import Element from '../_common/Element';
+import MyElement from '../_common/MyElement';
 
-class SearchInput extends Element {
+class SearchInput extends MyElement {
   constructor({ blockClassName }) {
     super({ className: CLASSES.INPUT });
     this.addClasses(blockClassName);
 
-    this.input = Element.createDOM({
+    this.input = MyElement.createDOM({
       tagName: TAGS.INPUT,
       className: CLASSES.INPUT_FIELD,
       attrs: [
@@ -16,7 +16,7 @@ class SearchInput extends Element {
         ['id', 'input'],
       ],
     });
-    this.dropdown = Element.createDOM({ className: CLASSES.INPUT_DROPDOWN });
+    this.dropdown = MyElement.createDOM({ className: CLASSES.INPUT_DROPDOWN });
 
     this.element.append(this.input, this.dropdown);
 
@@ -118,7 +118,7 @@ class SearchInput extends Element {
     const filtered = this.names.filter((item) => regex.test(item));
 
     filtered.forEach((name) => {
-      const suggestion = Element.createDOM({
+      const suggestion = MyElement.createDOM({
         tagName: TAGS.P,
         className: CLASSES.INPUT_SUGGESTION,
         textContent: name,

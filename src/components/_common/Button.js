@@ -1,7 +1,7 @@
 import { TAGS } from '../../js/constants/index';
-import Element from './Element';
+import MyElement from './MyElement';
 
-class Button extends Element {
+export default class Button extends MyElement {
   constructor({ className, textContent, attrs } = {}) {
     super({
       tagName: TAGS.BUTTON,
@@ -13,5 +13,3 @@ class Button extends Element {
     this.addClasses(className);
   }
 }
-
-export default Button;

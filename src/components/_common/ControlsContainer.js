@@ -1,8 +1,8 @@
 import { TAGS, CLASSES } from '../../js/constants/index';
-import Element from './Element';
+import MyElement from './MyElement';
 import Button from './Button';
 
-class ControlsContainer extends Element {
+export default class ControlsContainer extends MyElement {
   /**
    * @param {Object} params
    * @param {String} params.className
@@ -51,5 +51,3 @@ class ControlsContainer extends Element {
     });
   }
 }
-
-export default ControlsContainer;
