@@ -4,8 +4,6 @@
 
 A dashboard with most recent data on COVID-19. Uses data from [**disease.sh**](https://disease.sh). Uses Leaflet for map visualization and Chart.js for graphs.
 
-Live demo: https://covid-dashboard-va-z.netlify.app
-
 ## Install
 
 This project uses [**yarn**](https://yarnpkg.com).
