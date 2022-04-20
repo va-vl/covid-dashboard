@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "dev": "webpack serve --mode=development",
+    "start": "webpack serve --mode=development",
     "build": "webpack --mode=production",
     "serve:build": "npm run build && http-server ./dist -p 8080",
     "test": "jest"
@@ -29,9 +29,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/va-z/covid-dashboard/rs-css/issues"
+    "url": "https://github.com/va-vl/covid-dashboard/rs-css/issues"
   },
-  "homepage": "https://github.com/va-z/covid-dashboard/rs-css/#readme",
+  "homepage": "https://github.com/va-vl/covid-dashboard/rs-css/#readme",
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/eslint-parser": "^7.12.1",

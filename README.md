@@ -18,7 +18,7 @@ Rename `.env.example` file to `.env` and fill in a [**Stadia Maps**](https://sta
 
 To run the `yarn serve:build`, install **http-server** globally: `npm install -g http-server`.
 
-- `yarn dev` - run in dev mode;
+- `yarn start` - run in dev mode;
 - `yarn build`- build the app;
 - `yarn serve:build` - build the app and run it with **http-server**.
 - `yarn test` - run jest test;

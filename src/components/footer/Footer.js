@@ -13,7 +13,7 @@ export default class Footer extends MyElement {
     const author1 = MyElement.createDOM({
       tagName: TAGS.A,
       className: CLASSES.FOOTER_LINK,
-      textContent: 'va-z',
+      textContent: 'va-vl',
       attrs: [
         ['href', CONFIGS.AUTHOR_1],
         ['target', '_blank'],

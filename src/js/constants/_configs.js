@@ -1,7 +1,7 @@
 const CONFIGS = {
   LOCALE: 'ru-RU',
-  STORAGE_KEY: 'vazSavedState',
-  AUTHOR_1: 'https://github.com/va-z',
+  STORAGE_KEY: 'vavlSavedState',
+  AUTHOR_1: 'https://github.com/va-vl',
   AUTHOR_2: 'https://github.com/ansivgit',
   RSS: 'https://rs.school/js/',
   HOURS_BETWEEN_UPDATES: 6,
